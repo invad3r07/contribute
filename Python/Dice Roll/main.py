@@ -1,23 +1,21 @@
 #importing module for random number generation
 import random
 
-#range of the values of a dice
 min_val = 1
 max_val = 6
 
-#to loop the rolling through user input
-roll_again = "yes"
+def roll_dice():
+    while True:
+        roll_again = input("Do we roll the dice again (YES/y or NO/n): ").lower()
+        if roll_again == "yes" or roll_again == "y":
+            print("Rolling The Dice...")
+            val_1 = random.randint(min_val, max_val)
+            val_2 = random.randint(min_val, max_val)
+            print(f"The Values are: {val_1}, {val_2}")
+        elif roll_again == "quit" or roll_again == "q":
+            break
+        else: print("Please input valid values")
 
-#loop
-while roll_again == "yes" or roll_again == "y":
-    print("Rolling The Dices...")
-    print("The Values are :")
-    
-    #generating and printing 1st random integer from 1 to 6
-    print(random.randint(min_val, max_val))
-    
-    #generating and printing 2nd random integer from 1 to 6
-    print(random.randint(min_val, max_val))
-    
-    #asking user to roll the dice again. Any input other than yes or y will terminate the loop
-    roll_again = input("Roll the Dices Again?") 
+if __name__ == "__main":
+    roll_dice()
+
